@@ -37,6 +37,7 @@ class BookController extends Controller
         return redirect('/books')->with('success', 'Книга успешно добавлена!');
     }
 
+    //изменение книги findOrFail=нашло или отмнена
     public function edit($id): View
     {
         $book = Book::findOrFail($id);
