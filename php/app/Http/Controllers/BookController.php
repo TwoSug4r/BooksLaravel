@@ -66,6 +66,7 @@ class BookController extends Controller
 
         Book::reindexIds();
 
+        
         return redirect('/books')->with('success', 'Книга удалена');
     }
     
