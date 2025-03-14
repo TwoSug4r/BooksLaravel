@@ -16,3 +16,7 @@ Route::post('/books', [BookController::class, 'store']); //POST для реди�
 Route::get('/books/{id}/edit', [BookController::class, 'edit']);
 Route::put('/books/{id}', [BookController::class, 'update']);
 Route::delete('/books/{id}', [BookController::class, 'destroy'])->name('books.destroy');
+
+Route::get('/test', function () {
+    return response()->json(['message' => 'API работает']);
+});
