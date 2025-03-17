@@ -10,7 +10,7 @@ Route::get('/', function () {
 
 Route::get('/users', [UserController::class, 'index']);
 
-Route::get('/books', [BookController::class, 'index']);
+Route::get('/books', [BookController::class, 'index'])->name('book.index');
 Route::get('/books/add', [BookController::class, 'create']);
 Route::post('/books', [BookController::class, 'store']); //POST для редиректа под добавление
 Route::get('/books/{id}/edit', [BookController::class, 'edit']);

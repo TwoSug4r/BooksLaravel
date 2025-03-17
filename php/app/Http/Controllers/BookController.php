@@ -8,10 +8,16 @@ use App\Models\Book;
 
 class BookController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
-        $books = Book::all();
-        return view('book.index', ['books' => $books]);
+        $sortField = $request->query('sort', 'id'); // По умолчанию сортировка по id
+        $sortDirection = $request->query('direction', 'asc'); // По умолчанию по возрастанию
+
+        // Получаем книги с сортировкой
+        $books = Book::orderBy($sortField, $sortDirection)->get();
+
+        // Возвращаем представление с данными
+        return view('book.index', compact('books', 'sortField', 'sortDirection'));
     }
 
     public function create()
@@ -70,5 +76,6 @@ class BookController extends Controller
         
         return redirect('/books')->with('success', 'Книга удалена');
     }
+    
     
 }
