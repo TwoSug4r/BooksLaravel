@@ -25,48 +25,52 @@
     <a href="/books/add">Добавить новую книгу</a>
 
     <h1>Список книг</h1>
-    <div class="sort-buttons">
-        <form method="GET" action="{{ route('book.index') }}" style="display: inline;">
-            <input type="hidden" name="sort" value="id">
-            <input type="hidden" name="direction" value="{{ $sortField == 'id' && $sortDirection == 'asc' ? 'desc' : 'asc' }}">
-            <button type="submit">По ID {{ $sortField == 'id' && $sortDirection == 'asc' ? '↓' : '↑' }}</button>
-        </form>
-        <form method="GET" action="{{ route('book.index') }}" style="display: inline;">
-            <input type="hidden" name="sort" value="title">
-            <input type="hidden" name="direction" value="{{ $sortField == 'title' && $sortDirection == 'asc' ? 'desc' : 'asc' }}">
-            <button type="submit">По названию {{ $sortField == 'title' && $sortDirection == 'asc' ? '↓' : '↑' }}</button>
-        </form>
-        <form method="GET" action="{{ route('book.index') }}" style="display: inline;">
-            <input type="hidden" name="sort" value="author">
-            <input type="hidden" name="direction" value="{{ $sortField == 'author' && $sortDirection == 'asc' ? 'desc' : 'asc' }}">
-            <button type="submit">По автору (ID) {{ $sortField == 'author' && $sortDirection == 'asc' ? '↓' : '↑' }}</button>
-        </form>
-        <form method="GET" action="{{ route('book.index') }}" style="display: inline;">
-            <input type="hidden" name="sort" value="published_year">
-            <input type="hidden" name="direction" value="{{ $sortField == 'published_year' && $sortDirection == 'asc' ? 'desc' : 'asc' }}">
-            <button type="submit">По году {{ $sortField == 'published_year' && $sortDirection == 'asc' ? '↓' : '↑' }}</button>
-        </form>        
-        <form method="GET" action="{{ route('book.index') }}" style="display: inline;">
-            <input type="hidden" name="sort" value="genre">
-            <input type="hidden" name="direction" value="{{ $sortField == 'genre' && $sortDirection == 'asc' ? 'desc' : 'asc' }}">
-            <button type="submit">По жанру {{ $sortField == 'genre' && $sortDirection == 'asc' ? '↓' : '↑' }}</button>
-        </form>
-        <form method="GET" action="{{ route('book.index') }}" style="display: inline;">
-            <input type="hidden" name="sort" value="is_available">
-            <input type="hidden" name="direction" value="{{ $sortField == 'is_available' && $sortDirection == 'asc' ? 'desc' : 'asc' }}">
-            <button type="submit">По доступу {{ $sortField == 'is_available' && $sortDirection == 'asc' ? '↓' : '↑' }}</button>
-        </form>
-    </div>
 
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Название</th>
-                <th>Автор</th>
-                <th>Год</th>
-                <th>Жанр</th>
-                <th>Доступно</th>
+                <th>
+                    <form method="GET" action="{{ route('book.index') }}" style="display: inline;">
+                        <input type="hidden" name="sort" value="id">
+                        <input type="hidden" name="direction" value="{{ $sortField == 'id' && $sortDirection == 'asc' ? 'desc' : 'asc' }}">
+                        <button type="submit">ID {{ $sortField == 'id' && $sortDirection == 'asc' ? '↓' : '↑' }}</button>
+                    </form>
+                </th>
+                <th>
+                    <form method="GET" action="{{ route('book.index') }}" style="display: inline;">
+                        <input type="hidden" name="sort" value="title">
+                        <input type="hidden" name="direction" value="{{ $sortField == 'title' && $sortDirection == 'asc' ? 'desc' : 'asc' }}">
+                        <button type="submit">Названию {{ $sortField == 'title' && $sortDirection == 'asc' ? '↓' : '↑' }}</button>
+                    </form>
+                </th>
+                <th>
+                    <form method="GET" action="{{ route('book.index') }}" style="display: inline;">
+                        <input type="hidden" name="sort" value="author">
+                        <input type="hidden" name="direction" value="{{ $sortField == 'author' && $sortDirection == 'asc' ? 'desc' : 'asc' }}">
+                        <button type="submit">Автор {{ $sortField == 'author' && $sortDirection == 'asc' ? '↓' : '↑' }}</button>
+                    </form>
+                </th>
+                <th>
+                    <form method="GET" action="{{ route('book.index') }}" style="display: inline;">
+                        <input type="hidden" name="sort" value="published_year">
+                        <input type="hidden" name="direction" value="{{ $sortField == 'published_year' && $sortDirection == 'asc' ? 'desc' : 'asc' }}">
+                        <button type="submit">Год {{ $sortField == 'published_year' && $sortDirection == 'asc' ? '↓' : '↑' }}</button>
+                    </form>
+                </th>
+                <th>
+                    <form method="GET" action="{{ route('book.index') }}" style="display: inline;">
+                        <input type="hidden" name="sort" value="genre">
+                        <input type="hidden" name="direction" value="{{ $sortField == 'genre' && $sortDirection == 'asc' ? 'desc' : 'asc' }}">
+                        <button type="submit">Жанр {{ $sortField == 'genre' && $sortDirection == 'asc' ? '↓' : '↑' }}</button>
+                    </form>
+                </th>
+                <th>
+                    <form method="GET" action="{{ route('book.index') }}" style="display: inline;">
+                        <input type="hidden" name="sort" value="is_available">
+                        <input type="hidden" name="direction" value="{{ $sortField == 'is_available' && $sortDirection == 'asc' ? 'desc' : 'asc' }}">
+                        <button type="submit">Доступ {{ $sortField == 'is_available' && $sortDirection == 'asc' ? '↓' : '↑' }}</button>
+                    </form>
+                </th>
                 <th>Удаление</th>
             </tr>
         </thead>
@@ -79,8 +83,11 @@
                     <td>{{ $book->published_year }}</td>
                     <td>{{ $book->genre }}</td>
                     <td>{{ $book->is_available ? 'Да' : 'Нет' }}</td>
-                    <td>@method('DELETE')
-                        <button type="submit" onclick="return confirm('Вы увепены, что  хотите удалить эту книгу?')">удалить</button></td>
+                    <td><form method="POST" action="/books/{{ $book->id }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" onclick="return confirm('Вы уверены, что хотите удалить эту книгу?')">удалить</button>
+                    </form></td>
                 </tr>
             @endforeach
         </tbody>
