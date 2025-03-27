@@ -29,4 +29,8 @@ class UserController extends Controller
         }
         return view('user.show', ['user' => $user]); // Передаем в представление
     }
+
+    public function auth(){
+        return view('user.auth');
+    }
 }

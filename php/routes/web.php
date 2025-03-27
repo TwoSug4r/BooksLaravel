@@ -12,6 +12,7 @@ Route::get('/', function () {
 
 //users routes
 Route::get('/users', [UserController::class, 'index']);
+Route::get("/users/auth", [UserController::class, 'auth']);
 
 
 //books routes

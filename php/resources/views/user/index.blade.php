@@ -6,5 +6,6 @@
 </head>
 <body>
     <h1>List Users</h1>
-    <a href="/">Главная страница</a><br><br>
+    <a href="/">Welcome page</a><br>
+    <a href="/users/auth">Authorization</a><br>
 </body>
