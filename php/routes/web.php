@@ -12,8 +12,8 @@ Route::get('/', function () {
 
 //users routes
 Route::get('/users', [UserController::class, 'index']);
-Route::get("/users/auth", [UserController::class, 'auth']);
-
+Route::get('/users/auth', [UserController::class, 'auth']);
+Route::post('/users', [UserController::class, 'store'])->name('users.store');
 
 //books routes
 Route::get('/books', [BookController::class, 'index'])->name('book.index');

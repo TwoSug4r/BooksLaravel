@@ -6,13 +6,23 @@
     </head>
     <body>
         <h1>Write your name,email and password:</h1>
-        <form action="/index" method="post">
+        <form action="{{ route('users.store') }}" method="post">
             <label for="email">Enter your email:</label>
             <input type="email" id="email" name="email"><br>
+            @error('email')
+                <span style="color: red;">{{ $message }}</span><br>
+            @enderror
             <label for="name">Enter your name:</label>
             <input type="text" id="name" name="name"><br>
+            @error('name')
+                <span style="color: red;">{{ $message }}</span><br>
+            @enderror
             <label for="password">Enter your password:</label>
-            <input type="text" id="password" name="password">
+            <input type="password" id="password" name="password"><br>
+            @error('password')
+                <span style="color: red;">{{ $message }}</span><br>
+            @enderror
+            <button type="submit">Auth</button>
         </form>
     </body>
 </html>
