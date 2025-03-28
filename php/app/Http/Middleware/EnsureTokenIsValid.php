@@ -22,7 +22,6 @@ class EnsureTokenIsValid
         if ($request->input('token') !== 'my-secret-token') {
             return redirect('/')->with('error', 'you don\'t have token');
         }
-
         return $next($request);
     }
 }

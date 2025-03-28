@@ -13,7 +13,7 @@ Route::get('/', function () {
 //users routes
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/users/auth', [UserController::class, 'auth']);
-Route::post('/users', [UserController::class, 'store'])->name('users.store');
+Route::post('/users', [UserController::class, 'store'])->name('user.store');
 
 //books routes
 Route::get('/books', [BookController::class, 'index'])->name('book.index');

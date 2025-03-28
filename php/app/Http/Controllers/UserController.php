@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Auth;
 
 
 class UserController extends Controller
@@ -38,12 +38,20 @@ class UserController extends Controller
     
     public function store(Request $request)
     {
-        $request->validate([
-            'email' => 'required|unique:post|max:255',
-            'name' => 'required|unique:post|string|max:16',
-            'password' => ['required', Password::defaults()]
+        $data = $request->validate([
+            'email' => 'required|email|unique:users|max:255',
+            'name' => 'required|string|unique:users|max:16',
+            'password' => ['required', Password::defaults()],
         ]);
 
-        return redirect()->route('users.index')->with('success', 'Авторизация прошла успешно');;
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']), // Хешируем пароль
+        ]);
+
+        Auth::login($user);
+
+        return redirect()->route('users.index')->with('success', 'Вы успешно вошли!');
     }
 }
