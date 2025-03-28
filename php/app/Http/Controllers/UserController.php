@@ -52,6 +52,6 @@ class UserController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('users.index')->with('success', 'Вы успешно вошли!');
+        return redirect()->route('user.index')->with('success', 'Вы успешно вошли!');
     }
 }
