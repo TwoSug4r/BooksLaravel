@@ -49,14 +49,14 @@ class User extends Authenticatable
 
     public static function reindexIds()
     {
-        $books = self::orderBy('id')->get();
-        if ($books->isEmpty()) {
-            DB::statement('ALTER TABLE books AUTO_INCREMENT = 1;');
+        $users = self::orderBy('id')->get();
+        if ($users->isEmpty()) {
+            DB::statement('ALTER TABLE users AUTO_INCREMENT = 1;');
             return;
         }
 
         DB::statement('SET @count = 0;');
-        DB::statement('UPDATE books SET id = @count:= @count + 1;');
-        DB::statement('ALTER TABLE books AUTO_INCREMENT = ' . ($books->count() + 1) . ';');
+        DB::statement('UPDATE users SET id = @count:= @count + 1;');
+        DB::statement('ALTER TABLE users AUTO_INCREMENT = ' . ($users->count() + 1) . ';');
     }
 }
