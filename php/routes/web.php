@@ -14,6 +14,7 @@ Route::get('/', function () {
 Route::get('/users', [UserController::class, 'index'])->name('user.index');
 Route::get('/users/auth', [UserController::class, 'auth']);
 Route::post('/users', [UserController::class, 'store'])->name('user.store');
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 
 //books routes
 Route::get('/books', [BookController::class, 'index'])->name('book.index');

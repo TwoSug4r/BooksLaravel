@@ -54,4 +54,15 @@ class UserController extends Controller
 
         return redirect()->route('user.index')->with('success', 'Вы успешно вошли!');
     }
+
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        User::reindexIds();
+
+        
+        return redirect('/users')->with('success', 'клиент удален');
+    }
 }
