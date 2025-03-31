@@ -23,6 +23,9 @@
             @error('password')
                 <span style="color: red;">{{ $message }}</span><br>
             @enderror
+            <label>
+                <input type="checkbox" name="remember" checked> Запомнить меня
+            </label><br>
             <button type="submit">Auth</button>
         </form>
     </body>
