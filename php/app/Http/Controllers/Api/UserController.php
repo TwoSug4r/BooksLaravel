@@ -60,6 +60,9 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
+
+        User::reindexIds();
+
         return response()->json(['message' => 'Пользователь удалён'], 200);
     }
 }
