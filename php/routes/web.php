@@ -13,7 +13,7 @@ Route::get('/', function () {
 //users routes
 Route::get('/users', [UserController::class, 'index'])->name('user.index');
 Route::get('/users/register', [UserController::class, 'register']);
-Route::post('/users', [UserController::class, 'register'])->name('user.register');
+Route::post('/users', [UserController::class, 'store'])->name('user.register');
 Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 
 //books routes

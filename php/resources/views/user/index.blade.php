@@ -18,7 +18,7 @@
         </div>
     @endif
     <a href="/">Welcome page</a><br>
-    <a href="/users/auth">Authorization</a><br>
+    <a href="/users/register">Registration</a><br>
 
 
     <table>
