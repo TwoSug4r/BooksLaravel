@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1>Write your name,email and password:</h1>
-        <form action="{{ route('user.register') }}" method="post">
+        <form action="{{ route('users.create') }}" method="post">
             @csrf
             <label for="email">Enter your email:</label>
             <input type="email" id="email" name="email"><br>

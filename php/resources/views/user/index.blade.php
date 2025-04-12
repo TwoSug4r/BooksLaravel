@@ -18,7 +18,7 @@
         </div>
     @endif
     <a href="/">Welcome page</a><br>
-    <a href="/users/register">Registration</a><br>
+    <a href="/users/create">Registration</a><br>
 
 
     <table>
@@ -34,7 +34,7 @@
                     <td> {{ $user->id }} </td>
                     <td> {{ $user->name }} </td>
                     <td> {{ $user->email }} </td>
-                    <td><form method="post" action="{{ route('user.destroy', $user->id) }}">
+                    <td><form method="post" action="{{ route('users.destroy', $user->id) }}">
                         @csrf
                         @method('DELETE')
                         <button type="submit">delete</button>

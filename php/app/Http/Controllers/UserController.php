@@ -18,8 +18,8 @@ class UserController extends Controller
         return view('user.index', ['users' => $users]);
     }
 
-    public function register(){
-        return view('user.register');
+    public function create(){
+        return view('user.create');
     }
 
     /**
