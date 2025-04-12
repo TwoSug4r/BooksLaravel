@@ -30,42 +30,42 @@
         <thead>
             <tr>
                 <th>
-                    <form method="GET" action="{{ route('books.index') }}" style="display: inline;">
+                    <form method="GET" action="http://localhost:8000/books" style="display: inline;">
                         <input type="hidden" name="sort" value="id">
                         <input type="hidden" name="direction" value="{{ $sortField == 'id' && $sortDirection == 'asc' ? 'desc' : 'asc' }}">
                         <button type="submit">ID {{ $sortField == 'id' && $sortDirection == 'asc' ? '↓' : '↑' }}</button>
                     </form>
                 </th>
                 <th>
-                    <form method="GET" action="{{ route('books.index') }}" style="display: inline;">
+                    <form method="GET" action="http://localhost:8000/books" style="display: inline;">
                         <input type="hidden" name="sort" value="title">
                         <input type="hidden" name="direction" value="{{ $sortField == 'title' && $sortDirection == 'asc' ? 'desc' : 'asc' }}">
                         <button type="submit">Названию {{ $sortField == 'title' && $sortDirection == 'asc' ? '↓' : '↑' }}</button>
                     </form>
                 </th>
                 <th>
-                    <form method="GET" action="{{ route('books.index') }}" style="display: inline;">
+                    <form method="GET" action="http://localhost:8000/books" style="display: inline;">
                         <input type="hidden" name="sort" value="author">
                         <input type="hidden" name="direction" value="{{ $sortField == 'author' && $sortDirection == 'asc' ? 'desc' : 'asc' }}">
                         <button type="submit">Автор {{ $sortField == 'author' && $sortDirection == 'asc' ? '↓' : '↑' }}</button>
                     </form>
                 </th>
                 <th>
-                    <form method="GET" action="{{ route('books.index') }}" style="display: inline;">
+                    <form method="GET" action="http://localhost:8000/books" style="display: inline;">
                         <input type="hidden" name="sort" value="published_year">
                         <input type="hidden" name="direction" value="{{ $sortField == 'published_year' && $sortDirection == 'asc' ? 'desc' : 'asc' }}">
                         <button type="submit">Год {{ $sortField == 'published_year' && $sortDirection == 'asc' ? '↓' : '↑' }}</button>
                     </form>
                 </th>
                 <th>
-                    <form method="GET" action="{{ route('books.index') }}" style="display: inline;">
+                    <form method="GET" action="http://localhost:8000/books" style="display: inline;">
                         <input type="hidden" name="sort" value="genre">
                         <input type="hidden" name="direction" value="{{ $sortField == 'genre' && $sortDirection == 'asc' ? 'desc' : 'asc' }}">
                         <button type="submit">Жанр {{ $sortField == 'genre' && $sortDirection == 'asc' ? '↓' : '↑' }}</button>
                     </form>
                 </th>
                 <th>
-                    <form method="GET" action="{{ route('books.index') }}" style="display: inline;">
+                    <form method="GET" action="http://localhost:8000/books" style="display: inline;">
                         <input type="hidden" name="sort" value="is_available">
                         <input type="hidden" name="direction" value="{{ $sortField == 'is_available' && $sortDirection == 'asc' ? 'desc' : 'asc' }}">
                         <button type="submit">Доступ {{ $sortField == 'is_available' && $sortDirection == 'asc' ? '↓' : '↑' }}</button>
