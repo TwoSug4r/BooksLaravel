@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookController;
+use App\Http\Middleware\EnsureTokenIsValid;
 
 
 Route::get('/', function () {
@@ -22,8 +23,10 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::resources([
-    'books' => BookController::class,
-    'users' => UserController::class,
-]);
+Route::middleware('auth')->group(function () {
+    Route::resources([
+        'books' => BookController::class,
+        'users' => UserController::class,
+    ]);
+});
 
